@@ -1,0 +1,31 @@
+﻿<Window x:Class="VKR_Abrashkov_V_V.Authorization"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:local="clr-namespace:VKR_Abrashkov_V_V"
+            mc:Ignorable="d"
+            Closing="Window_Closing"
+            Title="Авторизация" Height="200" Width="400" WindowStartupLocation="CenterOwner">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Фамилия" Grid.Row="0" HorizontalAlignment="Center" />
+        <TextBox x:Name="surname" Grid.Row="1" MaxWidth="200" />
+        <TextBlock Text="Имя" Grid.Row="2" HorizontalAlignment="Center" />
+        <TextBox x:Name="name" Grid.Row="3" MaxWidth="200" />
+        <TextBlock Text="Пароль" Grid.Row="4" HorizontalAlignment="Center" />
+        <PasswordBox x:Name="password" Grid.Row="5" MaxWidth="200" />
+        <WrapPanel Grid.Row="6" Margin="0, 15,0,0" HorizontalAlignment="Right">
+            <Button x:Name="accept" IsDefault="True" Content="Подтвердить" Click="accept_Click" Margin="0,0,10,0" />
+            <Button x:Name="cancel" Content="Отмена" Click="cancel_Click" Margin="0,0,10,0" />
+        </WrapPanel>
+    </Grid>
+</Window>

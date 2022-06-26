@@ -1,0 +1,100 @@
+﻿<Window x:Class="VKR_Abrashkov_V_V.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VKR_Abrashkov_V_V"
+        mc:Ignorable="d"
+        Activated="Window_Activated" Background="LightCyan"
+        Title="Контроль семейного бюджета" Height="700" Width="1000" WindowState="Normal" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition  Width="auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" Grid.ColumnSpan="3" Name="menu">
+            <MenuItem Header="Файл">
+                <MenuItem Name="import" Header="Импорт" Click="import_Click" />
+                <MenuItem Name="export" Header="Экспорт" Click="export_Click" />
+                <MenuItem Name="renew" Header="Обновить цены" Click="renew_Click" />
+            </MenuItem>
+            <MenuItem Header="Статистика">
+                <MenuItem Name="BalStat" Header="Баланс по времени" Click="BalStat_Click" />
+                <Separator />
+                <MenuItem Name ="URS" Header="Доходы по пользователям" Click="URS_Click" />
+                <Separator />
+                <MenuItem Name="UWS" Header="Расходы по пользователям" Click="UWS_Click" />
+                <MenuItem Name="WithSegm" Header="Расходы по сегментам" Click="WithSegm_Click" />
+            </MenuItem>
+            <MenuItem Header="Инструменты">
+                <MenuItem Name="doOper"  Header="Добавить расходы/пополнения"  Click="doOp_Click" />
+                <Separator />
+                <MenuItem Name="mkContr" Header="Добавить вклад" Click="mkContr_Click" />
+                <Separator />
+                <MenuItem Name="mkCredit" Header="Добавить кредит" Click="mkCredit_Click" />
+                <Separator />
+            </MenuItem>
+            <MenuItem Header="Функции администратора">
+                <MenuItem Header="Добавить пользователя" Click="adUs_Click" />
+                <Separator />
+            </MenuItem>
+            <MenuItem x:Name="products" Header="Цены на продукты" Click="products_Click" />
+            <MenuItem x:Name="auth" Header="Сменить пользователя" Click="Authorize" />
+        </Menu>
+        <GroupBox Header ="" Margin="5" Grid.Row="1"  Background="LightGray">
+            <StackPanel Margin="5" Orientation="Vertical">
+                <WrapPanel Orientation="Horizontal">
+                    <TextBlock Grid.Row="1" Grid.RowSpan="1" Grid.Column="0" x:Name="tbb1" Text="Ваш баланс" FontFamily="Fixed Miriam Transparent" FontSize="26" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <TextBlock Grid.Row="2" Grid.RowSpan="1" Grid.Column="0" x:Name="tbb2" FontFamily="Fixed Miriam Transparent" FontSize="26" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15" />
+                </WrapPanel>
+                <WrapPanel Orientation="Horizontal">
+                    <TextBlock Grid.Row="3" Grid.RowSpan="1" Grid.Column="0" x:Name="tbb3" Text="Общий баланс" FontFamily="Fixed Miriam Transparent" FontSize="26" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <TextBlock Grid.Row="4" Grid.RowSpan="1" Grid.Column="0" x:Name="tbb4" FontFamily="Fixed Miriam Transparent" FontSize="26" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="15" />
+                </WrapPanel>
+            </StackPanel>
+        </GroupBox>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition />
+                <RowDefinition Height="auto" />
+                <RowDefinition />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Text="История совершенных операций" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                           FontFamily="Fixed Miriam Transparent" FontSize="15" HorizontalAlignment="Center" />
+            <DataGrid Name="dgOps"  Margin="5" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
+            <TextBlock Text="История совершенных входов" Grid.Row="2" Grid.Column="0"
+                           FontFamily="Fixed Miriam Transparent" FontSize="15" HorizontalAlignment="Center" />
+            <DataGrid Name="dgLogHis" Grid.Row="3" Grid.Column="0" Margin="5" />
+            <TextBlock Text="Список пользователей" Grid.Row="2" Grid.Column="1"
+                           FontFamily="Fixed Miriam Transparent" FontSize="15" HorizontalAlignment="Center" />
+            <DataGrid Name="dgus" Grid.Row="3" Grid.Column="1" Margin="5" />
+            <StackPanel  Grid.Column="2" Grid.Row="1" Grid.RowSpan="4">
+                <Button x:Name="refresh" Content="Обновить" Margin="10" Click="refresh_Click" />
+                <Button x:Name="delUs" Content="Удалить пользователя" Margin="10" Click="delUs_Click" />
+            </StackPanel>
+        </Grid>
+        <GroupBox Header ="" Margin="10" Grid.Row="1" Grid.RowSpan="4" Grid.Column="2" Background="AliceBlue">
+            <TextBlock  x:Name="tb2" FontFamily="Fixed Miriam Transparent" FontSize="26" Margin="10" />
+        </GroupBox>
+        <StatusBar Name="status" Grid.Row="5" Grid.ColumnSpan="3">
+            <StatusBarItem Grid.Column="0">
+                <TextBlock x:Name="privet" HorizontalAlignment="Left" />
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>
